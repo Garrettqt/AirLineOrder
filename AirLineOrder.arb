@@ -1,0 +1,49 @@
+class Passenger
+    def initialize(name, isVIP)
+    @name = name
+    @isVIP = isVIP
+    end    
+    def name
+        @name
+    end
+    def isVIP
+        @isVIP
+    end
+end
+
+class AirLine
+    def initialize
+        @vipeople = []
+        @normies = []
+    end
+    def addPassenger(passenger)
+        if passenger.isVIP 
+            @vipeople.push(passenger.name)
+        else 
+            @normies.push(passenger.name)
+        end
+    end
+    def getOrder
+        @vipeople + @normies
+    end
+end
+
+class Main
+    bob = Passenger.new("bob", true)
+    jen = Passenger.new("jen", true)
+    drep = Passenger.new("drep", false)
+    lilly = Passenger.new("lilly", false)
+    xanth = Passenger.new("xanth", false)
+
+    airline = AirLine.new
+    
+    airline.addPassenger(drep)
+    airline.addPassenger(bob)
+    airline.addPassenger(lilly)
+    airline.addPassenger(jen)
+    airline.addPassenger(xanth)
+
+    p airline.getOrder
+end
+
+
